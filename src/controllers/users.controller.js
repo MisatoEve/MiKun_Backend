@@ -32,7 +32,7 @@ export const registerPost = async(req, res) => {
                         <p class="m-5">I want to let you know that this is a fictitious ecommerce store, where we do not sell real products. It's a project for CoderHouse's Backend course.</p>
                         <p>I hope that you find everything that you're looking for!</p>
                         <hr>
-                        <p class="m-5">If you wanna keep looking the website, be my guest!!! Click <a href="${config.BASE_URL}/home">here</a>!
+                        <p class="m-5">If you wanna keep looking the website, be my guest!! Click <a href="${config.BASE_URL}/home">here</a>!
                     </main>`
         }
         await sendMail.send(mailOptions)

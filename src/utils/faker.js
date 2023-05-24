@@ -1,4 +1,4 @@
-/*import { faker } from "@faker-js/faker";
+import { faker } from "@faker-js/faker";
 
 faker.locale = 'es';
 
@@ -38,4 +38,4 @@ export const generateOneUser = () => {
         age: faker.random.numeric(1),
         password: faker.random.alphaNumeric(6),
     }
-}*/
+}

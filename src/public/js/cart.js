@@ -82,7 +82,7 @@ const confirmTicket = async(cid) => {
                 title: 'Your purchase is complete! Check for confirmation email in your inbox.',
                 position: 'center',
                 showConfirmButton: true,
-                confirmButtonText: `<a href='http://localhost:8080/carts/${cid}/payment'>To deploy page.</a>`,
+                confirmButtonText: `<a href='https://mikunbackend-production.up.railway.app/carts/${cid}/payment'>To deploy page.</a>`,
                 confirmButtonText: `<a href='http://localhost:8080/carts/${cid}/payment'>To localhost page.</a>`,
                 allowOutsideClick: false
             })
@@ -93,7 +93,7 @@ const confirmTicket = async(cid) => {
                 title: 'There are no products un the cart.',
                 position: 'center',
                 showConfirmButton: true,
-                confirmButtonText: `<a href='http://localhost:8080/products'>Ok!</a>`,
+                confirmButtonText: `<a href='https://mikunbackend-production.up.railway.app/products'>Ok!</a>`,
                 allowOutsideClick: false
             })
         }

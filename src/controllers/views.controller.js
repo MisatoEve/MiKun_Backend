@@ -241,7 +241,7 @@ export const payment = async(req, res) => {
                         <p class="m-3">Your ticket number is ${result.code}</p>
                         <p class="m-3">Also, we let you know that this is a fictitious ecommerce store, where we do not sell real products. It's a project for CoderHouse's Backend course.</p>
                         <p class="m-3">I hope that everything went well and that you haven't encountered major inconveniences while browsing the website</p>
-                        <p class="m-3">If you wanna keep looking the website, be my guest!!! Click <a href="https://backendpf-production.up.railway.app/home">here</a>!
+                        <p class="m-3">If you wanna keep looking the website, be my guest!!! Click <a href="https://mikunbackend-production.up.railway.app/products">here</a>!
                     </main>`
         }
         await sendMail.send(mailOptions)
