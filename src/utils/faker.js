@@ -1,17 +1,17 @@
 import { faker } from "@faker-js/faker";
 
-faker.locale = 'es';
+faker.localeFa = 'es';
 
 export const generateUsers = () => {
-    let numOfProducts = parseInt(faker.random.numeric(1, {bannedDigits: ['0']}))
+    let numOfProducts = parseInt(faker.string.numeric(1, {bannedDigits: ['0']}))
     let products = [];
     for (let i = 0; i < numOfProducts; i++) {
         products.push(generateProducts());
     }
 
     return {
-        first_name: faker.name.firstName(),
-        last_name: faker.name.lastName(),
+        first_name: faker.person.firstName(),
+        last_name: faker.person.lastName(),
         email: faker.internet.email(),
         id: faker.database.mongodbObjectId(),
         products
@@ -23,19 +23,17 @@ export const generateProducts = () => {
         title: faker.commerce.productName(),
         price: faker.commerce.price(),
         description: faker.commerce.productDescription(),
-        stock: faker.random.numeric(1),
+        stock: faker.string.numeric(1),
         id: faker.database.mongodbObjectId(),
         thumbnail: faker.image.imageUrl()
     }
 }
 
-
 export const generateOneUser = () => {
     return {
-        first_name: faker.name.firstName(),
-        last_name: faker.name.lastName(),
+        first_name: faker.person.firstName(),
+        last_name: faker.person.lastName(),
         email: faker.internet.email(),
-        age: faker.random.numeric(1),
-        password: faker.random.alphaNumeric(6),
+        password: 'secret'
     }
 }

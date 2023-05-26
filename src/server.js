@@ -69,6 +69,7 @@ app.use(passport.session());
 const io = new Server(httpServer) // ►Se crea el servidor Socket
 socket(io)
 
+//▼Routers
 app.use('/api/logger', loggerRouter)
 app.use('/api/carts', passportCall('jwt'), cartRouter);
 app.use('/api/products', passportCall('jwt'), productRouter);

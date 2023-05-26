@@ -1,5 +1,5 @@
 import { Router } from 'express';
-//import { generateUsers } from '../utils/faker.js';
+import { generateUsers } from '../utils/faker.js';
 
 const router = Router();
 
