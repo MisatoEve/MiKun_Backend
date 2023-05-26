@@ -83,3 +83,7 @@ $ npm i swagger-jsdoc
 $ npm i swagger-ui-express
 
 $ npm i uuid
+
+// prueba de compra
+//►  bug@cito.com
+//►  1234 

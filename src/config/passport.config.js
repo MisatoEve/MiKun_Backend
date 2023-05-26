@@ -1,15 +1,15 @@
 import config from "./config.js";
 import passport from "passport";
 import local from 'passport-local';
-//import GitHubStrategy from 'passport-github2';
+import GitHubStrategy from 'passport-github2';
 //import GoogleStrategy from 'passport-google-oauth2';
 import jwt from 'passport-jwt';
-// import User from '../dao/mongo/users.mongo.js';
+//import User from '../dao/mongo/users.mongo.js';
 import { createHash, generateToken, validatePassword } from "../utils/index.js";
 import UserModel from "../dao/mongo/models/users.model.js";
 import { UsersService, CartsService } from "../repository/index.js";
 
-// const usersService = new User();
+//const usersService = new User();
 
 const LocalStrategy = local.Strategy;
 
@@ -60,15 +60,16 @@ const initializePassport = () => {
             return done(null, result)
 
         } catch (error) {
+            console.log(error);
             return done(`There's been an error trying to register: `, error.message)
         }
     }))
 
     // ▼Login Github
-    /*passport.use('github', new GitHubStrategy({
+    passport.use('github', new GitHubStrategy({
         clientID: config.GITHUB_CLIENT_ID,
         clientSecret: config.GITHUB_CLIENT_SECRET,
-        callbackURL: config.GITHUB_CALLBACKURL
+        callbackURL: config.GITHUB_CALLBACKURL_PRODUCTION
     },
     async(accessToken, refreshToken, profile, done) => {
         try {
@@ -83,17 +84,28 @@ const initializePassport = () => {
                 email: profile._json.email,
                 social: 'GitHub',
                 age: '',
-                password: "",
-                rol: (profile._json.email === 'adminCoder@coder.com' || 'evelyn_andrada@hotmail.com') ? 'admin' : 'user'
+                documents: [],
             }
 
             const result = await UsersService.createUser(newUser);
-            return done(null, result);
+            if (result.email === 'adminCoder@coder.com' || result.email === 'evelyn_andrada@hotmail.com') {
+                result.rol = 'admin'
+                await result.save();
+                return done(null, result);
+            }
 
+            if (result.cart === undefined) {
+                result.cart = await CartsService.createCart(),
+                await result.save();
+                return done(null, result);
+            }
+
+            await result.save();
+            return done(null, result);
         } catch (error) {
             return done(`There's been an error authenticating with GitHub: `, error.message)
         }
-    }));*/
+    }));
 
     // ▼Login Google
 /*    passport.use('google', new GoogleStrategy({

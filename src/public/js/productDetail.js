@@ -64,7 +64,7 @@ const deleteProductFromDB = async (pid) => {
             text: `You've deleted the product from the DB.`,
             position: 'center',
             showConfirmButton: true,
-            confirmButtonText: `<a href='http://localhost:8080/home'>Confirmo!</a>`
+            confirmButtonText: `<https://mikunbackend-production.up.railway.app/home'>Confirmo!</a>`
         })
     }
     

@@ -23,7 +23,7 @@ router.get('/login', loginGet)
 router.post('/login', passport.authenticate('local', { failureRedirect: '/users/error' }), loginPost);
 
 router.get('/login-github', passport.authenticate('github', { scope: [ 'user: email' ]}), async(req, res) => { });
-router.get('/github-callback', passport.authenticate('github', { failureRedirect: '/users/error'}), loginGitHub);
+router.get('/github-callback', passport.authenticate('github', { failureRedirect: '/login'}), loginGitHub);
 
 router.get('/login-google', passport.authenticate('google', {scope: ['email', 'profile']}), (req, res) => {})
 router.get('/google-callback', passport.authenticate('google', { failureRedirect: '/users/error'}), loginGoogle);

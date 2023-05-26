@@ -21,7 +21,7 @@ export const registerPost = async(req, res) => {
         if(!req.user) {
             return res.status(400)
         }
-        const mailOptions = {
+        const newAccountMail = {
             user: `${req.user.email}`,
             subject: `Thanks for registering.`,
             html:   `<main class="container m-3 text-center" style="background-color: #B9CDDA; font-family: 'Roboto', sans-serif;">
@@ -35,7 +35,7 @@ export const registerPost = async(req, res) => {
                         <p class="m-5">If you wanna keep looking the website, be my guest!! Click <a href="${config.BASE_URL}/home">here</a>!
                     </main>`
         }
-        await sendMail.send(mailOptions)
+        await sendMail.send(newAccountMail)
 
         return res.status(200).redirect('/users/login');
     } catch (error) {
@@ -89,6 +89,8 @@ export const loginPost = async(req, res) => {
 export const loginGitHub = async (req, res) => {
     try {
         req.session.user = req.user;
+        const updateUser = await UsersService.updateLastConnection(req.session.user._id)
+
         return res.status(200).redirect('/users/current');
     } catch (error) {
         req.logger.error(error)
@@ -99,6 +101,8 @@ export const loginGitHub = async (req, res) => {
 export const loginGoogle = async (req, res) => {
     try {
         req.session.user = req.user;
+        const updateUser = await UsersService.updateLastConnection(req.session.user._id)
+
         return res.status(200).redirect('/users/current');
     } catch (error) {
         req.logger.error(error)
@@ -167,7 +171,7 @@ export const errors = async (req, res) => {
             error: 'Session Error, try again later' 
         });
     } catch (error) {
-        req.logger.error(error)
+        req.logger.error(error.message)
         return res.status(400).send({ status: 'error', error: error.message });
     }
 }
