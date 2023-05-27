@@ -1,4 +1,4 @@
-# MiKun Store - **e-commerce** Backend Project
+# MiKun Store - **E-commerce** Backend Project
 _____
 
 Link test to live version _[MiKun Store](https://mikunbackend-production.up.railway.app/home)_
@@ -40,15 +40,16 @@ El usuario puede eliminar el artículo por completo. La página incluye el preci
 ## Features
 _________
 Se puede acceder a la aplicación sin registro de usuario. Es decir que cualquier persona puede realizar la acción de ver todos los detalles sobre el producto seleccionado, al agregar productos al carrito para generar la orden deberá estar logueado/registrado de forma obligatoria. 
+Barra de búsqueda: permite al usuario buscar productos por palabra clave.
+Imagen en miniatura en el carrito de compra.
 
 Características que quedan por implementar
 
-> Barra de búsqueda: permite al usuario buscar productos por palabra clave.
-Imagen en miniatura en el carrito de compra 
-Que agregue alguna imagen de la galería en la página de detalles del producto.
-Crear página de contacto.
+> Implementación actual sobre pasarelas de pago.
+Ingreso login con cuenta de google/github.
 Reseñas de los clientes.
-Implementación actual de las pasarelas de pago
+Crear página de contacto.
+Que agregue alguna imagen de la galería en la página de detalles del producto.
 
 ## Technologies used
 ______
